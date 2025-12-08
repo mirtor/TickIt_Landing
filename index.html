@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>TickIt — Tareas y notas</title>
+    <meta
+      name="description"
+      content="TickIt es una app ligera de tareas y notas con subtareas, notas en viñetas y una UI limpia. Hecha con Vue + Firebase."
+    />
+
+    <meta property="og:title" content="TickIt — Tareas y notas" />
+    <meta
+      property="og:description"
+      content="Organiza tu día con mínima fricción: tareas, subtareas y notas tipo bullet."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="./img/TickItIcon.svg" type="image/svg+xml" />
+    <link rel="es" href="./img/es.svg" type="image/svg+xml" />
+    <link rel="en" href="./img/en.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="container topbar__inner">
+          <div class="brand">
+            <img src="./img/TickItIcon.svg" alt="TickIt" class="footer__logo" />
+            <div>
+              <div class="brand__name">TickIt</div>
+              <div class="brand__small">Tareas y notas</div>
+            </div>
+          </div>
+
+          <nav class="topbar__nav">
+            <a href="#features">Características</a>
+            <a href="#how">Cómo funciona</a>
+            <a href="#faq">FAQ</a>
+            <a class="navlink" href="#comments">Comentarios</a>
+          </nav>
+
+          <div class="topbar__cta" style="gap:.5rem;">
+            <a class="btn btn--ghost" id="openAppTop" href="#">Abrir app</a>
+          </div>
+
+          <div class="lang-switch" aria-label="Selector de idioma">
+            <button class="lang-btn active" data-lang="es" title="Español">
+                <img src="./img/es.svg" alt="TickIt" class="flag" />
+                <span>ES</span>
+            </button>
+            <button class="lang-btn" data-lang="en" title="English">
+                <img src="./img/en.svg" alt="TickIt" class="flag" />
+                <span>EN</span>
+            </button>
+          </div>
+          
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <main>
+        <section class="hero">
+          <div class="container hero__grid">
+            <div class="hero__copy">
+              <div class="badge">Tareas y notas</div>
+              <h1>
+                Organiza tu día
+                <span class="accent">fácilmente</span>
+              </h1>
+              <p class="lead">
+                TickIt te ayuda a gestionar tareas y notas con una interfaz limpia y rápida.
+                Controla subtareas, mantén visibles los completados y escribe notas como puntos
+                con separadores sutiles para distintos temas.
+              </p>
+
+              <div class="hero__actions">
+                <a class="btn btn--primary" id="openAppHero" href="#">
+                  Ir a TickIt
+                </a>
+
+                <button class="btn btn--secondary" id="installHelpBtn" type="button">
+                  Consulta FAQ para instalar
+                </button>
+              </div>
+
+              <div class="hero__meta">
+                <div class="meta-pill">Vue 3 + TypeScript</div>
+                <div class="meta-pill">Firebase Auth + Firestore</div>
+                <div class="meta-pill">App PWA</div>
+              </div>
+            </div>
+
+            <!-- Screenshot placeholder -->
+          <div class="panel shot-card">
+            <div class="shot-frame">
+              <img class="shot-img" src="./img/screenshots.png"alt="Captura de TickIt" width="100%"/>
+            </div>
+          </div>
+
+          </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="section">
+          <div class="container">
+            <div class="section__head">
+              <h2>Todo lo necesario, nada de relleno</h2>
+              <p>
+                TickIt se centra en una planificación diaria real con una UX cuidada.
+              </p>
+            </div>
+
+            <div class="grid-3">
+              <article class="feature-card">
+                <div class="feature-icon">✓</div>
+                <h3>Activas y completadas</h3>
+                <p>
+                  Mantén el progreso visible. Los completados no estorban, pero están a mano.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">↕</div>
+                <h3>Orden rápido</h3>
+                <p>
+                  Reordena tareas y notas con controles simples para priorizar al instante.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">•</div>
+                <h3>Notas en puntos</h3>
+                <p>
+                  Cada salto de línea es un punto. Doble salto crea un separador sutil.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">☑</div>
+                <h3>Subtareas completas</h3>
+                <p>
+                  Añade descripción, enlace y fecha opcional. Edición segura por defecto.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">✎</div>
+                <h3>Edición sin sustos</h3>
+                <p>
+                  Notas bloqueadas al abrir. Un botón unifica editar/guardar.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>UI limpia y rápida</h3>
+                <p>
+                  Tipografía compacta, buen espaciado y estilos refactorizados.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- How it works -->
+        <section id="how" class="section section--alt">
+          <div class="container how">
+            <div class="how__text">
+                <h2>Pensada para el uso diario</h2>
+                <p>
+                    TickIt no intenta ser un gestor pesado. Es tu compañera ligera
+                    para tareas del día y notas cortas, sincronizadas entre dispositivos.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn btn--primary">
+                        Consulta FAQ para instalar
+                    </button>
+                    <a class="btn btn--ghost" href="https://apptasks-49a0a.web.app">
+                        Abrir app
+                    </a>
+                </div>
+
+                <p class="hint" style="margin-top:.8rem;">
+                    Si tu navegador lo permite, aparecerá una sugerencia de instalación automática.
+                </p>
+            </div>
+
+            <div class="how__panel">
+              <div class="info-panel">
+                <h4>Consejo móvil</h4>
+                <p>
+                  Puedes añadir TickIt a tu pantalla de inicio desde el navegador
+                  y usarla como si fuese una app.
+                </p>
+                <div class="mini-steps">
+                  <div class="mini-step">
+                    <span class="mini-dot"></span>
+                    <span>Abre TickIt en el móvil</span>
+                  </div>
+                  <div class="mini-step">
+                    <span class="mini-dot"></span>
+                    <span>Compartir / Menú → “Añadir a pantalla de inicio”</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+          <div class="container">
+            <div class="section__head">
+              <h2>FAQ</h2>
+              <p>Respuestas rápidas a lo más habitual.</p>
+            </div>
+
+            <div class="faq">
+              <details open>
+                 <summary>¿Cómo la instalo?</summary>
+                    <p>
+                        TickIt es una PWA. Puedes instalarla como acceso directo:
+                    </p>
+
+                    <ul>
+                        <li><strong>Escritorio</strong>: en Chrome/Edge suele aparecer un icono de instalación en la barra de direcciones.</li>
+                        <li><strong>Android (Chrome)</strong>: abre la app → menú ⋮ → <em>Instalar app</em> o <em>Añadir a pantalla de inicio</em>.</li>
+                        <li><strong>iOS (Safari)</strong>: pulsa compartir → <em>Añadir a pantalla de inicio</em>.</li>
+                    </ul>
+                    <p>
+                        También puedes añadirla a los <strong>favoritos o marcadores</strong> de tu navegador.
+                    </p>
+                </details>
+
+            
+
+              <details>
+                <summary>¿Mis datos son privados?</summary>
+                <div class="faq__content">
+                  <p>
+                     <p>
+                        Tus tareas y notas se guardan vinculadas a tu cuenta en Firebase y solo
+                        deberían ser accesibles por ti mediante las reglas de seguridad.
+                    </p>
+                    <p>
+                        <strong>Estamos trabajando en cifrado de extremo a extremo</strong> para que,
+                        incluso a nivel de infraestructura, el contenido sea aún más privado.
+                    </p>
+                  </p>
+                </div>
+              </details>
+
+              <details>
+                <summary>¿Cómo empiezo rápido?</summary>
+                <div class="faq__content">
+                  <p>
+                    Abre la app, crea tu primera tarea y añade subtareas o una nota tipo bullet.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comments -->
+        <section id="comments" class="section">
+        <div class="container">
+            <div class="section__head">
+            <h2>Comentarios y sugerencias</h2>
+            <p>
+                El feedback se gestiona mediante <strong>GitHub Issues</strong>.
+                Puedes enviar un comentario público visible en esta landing o uno privado
+                para incidencias/sugerencias internas.
+            </p>
+            </div>
+
+            <div class="comments-wrap">
+            <!-- Public comments list -->
+            <div class="panel">
+                <div class="comment-head">
+                <div>
+                    <strong>Comentarios públicos</strong>
+                    <div class="hint">
+                    Cargados desde GitHub Issues con la etiqueta
+                    <code>public-feedback</code>.
+                    </div>
+                </div>
+
+                <button class="btn btn--ghost" id="reloadPublicComments" type="button">
+                    Recargar
+                </button>
+                </div>
+
+                <div id="publicCommentsList"></div>
+
+                <div class="hint" style="margin-top:.9rem;">
+                Si todavía no ves comentarios, probablemente aún no hay issues con esa etiqueta.
+                </div>
+            </div>
+
+            <!-- Feedback form -->
+            <div class="panel">
+                <strong>Enviar comentario</strong>
+                <p class="hint">
+                Al enviar el formulario, se creará un issue en el repositorio de la landing.
+                Los comentarios marcados como <strong>privados</strong> se guardan con la etiqueta
+                <code>private-feedback</code> y <strong>no se muestran</strong> aquí.
+                </p>
+
+                <form id="commentForm">
+                <div class="field">
+                    <label for="name">Nombre</label>
+                    <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    maxlength="40"
+                    placeholder="Tu nombre"
+                    required
+                    />
+                </div>
+
+                <div class="field">
+                    <label for="message">Texto</label>
+                    <textarea
+                    id="message"
+                    name="message"
+                    maxlength="300"
+                    placeholder="Comentario, error o sugerencia..."
+                    required
+                    ></textarea>
+                    <div class="hint"><span id="msgCount">0</span>/300</div>
+                </div>
+
+                <div class="field">
+                    <label for="visibility">Tipo</label>
+                    <select id="visibility" name="visibility">
+                    <option value="public">Público (visible en la landing)</option>
+                    <option value="private">Privado (incidencias/sugerencias)</option>
+                    </select>
+                </div>
+
+                <div class="hero__actions">
+                    <button class="btn btn--primary" type="submit">
+                    Enviar comentario
+                    </button>
+                </div>
+
+                <div class="hint" style="margin-top:.7rem;">
+                    Nota: el envío real funcionará cuando conectes la landing a Vercel
+                    con la función serverless que crea el issue.
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- CTA strip -->
+        <section class="cta-strip">
+          <div class="container cta-strip__inner">
+            <div>
+              <h3>¿Listo para tener el día controlado?</h3>
+              <p>Crea tu primera tarea o nota en segundos.</p>
+            </div>
+            <div class="cta-strip__actions">
+              <a class="btn btn--primary" id="openAppBottom" href="#">Abrir TickIt</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container footer__inner">
+          <div class="brand">
+            <img src="./img/TickItIcon.svg" alt="TickIt" class="footer__logo" />
+            <div>
+              <div class="brand__name">TickIt</div>
+              <div class="brand__small">Tareas y notas</div>
+            </div>
+          </div>
+
+          <div class="footer__links">
+            <a href="./privacy.html">Privacidad</a>
+            <a id="openAppFooter" href="#">App</a>
+            <a href="./index-en.html">EN</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+    <script src="./js/script.js"></script>
+    <script src="./js/feedback.js"></script>
+  </body>
+</html>

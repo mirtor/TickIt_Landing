@@ -18,14 +18,14 @@
     <meta property="og:type" content="website" />
 
     <link rel="icon" href="./img/TickItIcon.svg" type="image/svg+xml" />
-    <link rel="es" href="./img/es.svg" type="image/svg+xml" />
-    <link rel="en" href="./img/en.svg" type="image/svg+xml" />
+    <link rel="alternate" hreflang="es" href="./index.html" />
+    <link rel="alternate" hreflang="en" href="./index-en.html" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
 
   <body>
@@ -87,9 +87,9 @@
                   Ir a TickIt
                 </a>
 
-                <button class="btn btn--secondary" id="installHelpBtn" type="button">
+                <a href="#faq" class="btn btn--secondary" id="installHelpBtn" type="button">
                   Consulta FAQ para instalar
-                </button>
+                </a>
               </div>
 
               <div class="hero__meta">
@@ -182,10 +182,10 @@
                 </p>
 
                 <div class="hero-actions">
-                    <button class="btn btn--primary">
+                    <a href="#faq" class="btn btn--primary">
                         Consulta FAQ para instalar
-                    </button>
-                    <a class="btn btn--ghost" href="https://apptasks-49a0a.web.app">
+                    </a>
+                    <a class="btn btn--ghost" id="openAppHow" href="https://apptasks-49a0a.web.app">
                         Abrir app
                     </a>
                 </div>
@@ -273,98 +273,71 @@
         </section>
 
         <!-- Comments -->
-        <section id="comments" class="section">
-        <div class="container">
+        <section id="comments" class="section section--alt">
+          <div class="container">
             <div class="section__head">
-            <h2>Comentarios y sugerencias</h2>
-            <p>
-                El feedback se gestiona mediante <strong>GitHub Issues</strong>.
-                Puedes enviar un comentario público visible en esta landing o uno privado
-                para incidencias/sugerencias internas.
-            </p>
+              <h2>Comentarios</h2>
+              <p>
+                Deja una sugerencia o feedback. Se enviará para revisión y podrá aparecer en esta página.
+              </p>
             </div>
 
-            <div class="comments-wrap">
-            <!-- Public comments list -->
-            <div class="panel">
-                <div class="comment-head">
-                <div>
-                    <strong>Comentarios públicos</strong>
-                    <div class="hint">
-                    Cargados desde GitHub Issues con la etiqueta
-                    <code>public-feedback</code>.
-                    </div>
-                </div>
-
-                <button class="btn btn--ghost" id="reloadPublicComments" type="button">
-                    Recargar
-                </button>
-                </div>
-
-                <div id="publicCommentsList"></div>
-
-                <div class="hint" style="margin-top:.9rem;">
-                Si todavía no ves comentarios, probablemente aún no hay issues con esa etiqueta.
-                </div>
-            </div>
-
-            <!-- Feedback form -->
-            <div class="panel">
-                <strong>Enviar comentario</strong>
-                <p class="hint">
-                Al enviar el formulario, se creará un issue en el repositorio de la landing.
-                Los comentarios marcados como <strong>privados</strong> se guardan con la etiqueta
-                <code>private-feedback</code> y <strong>no se muestran</strong> aquí.
-                </p>
-
-                <form id="commentForm">
-                <div class="field">
-                    <label for="name">Nombre</label>
-                    <input
+            <div class="comments-grid">
+              <form id="commentForm" class="comment-form">
+                <label class="field">
+                  <span>Nombre</span>
+                  <input
                     id="name"
                     name="name"
                     type="text"
-                    maxlength="40"
                     placeholder="Tu nombre"
+                    maxlength="60"
                     required
-                    />
-                </div>
+                    autocomplete="name"
+                  />
+                </label>
 
-                <div class="field">
-                    <label for="message">Texto</label>
-                    <textarea
+                <label class="field">
+                  <span>Comentario</span>
+                  <textarea
                     id="message"
                     name="message"
-                    maxlength="300"
-                    placeholder="Comentario, error o sugerencia..."
+                    rows="5"
+                    placeholder="¿Qué mejorarías o qué te ha gustado?"
+                    maxlength="280"
                     required
-                    ></textarea>
-                    <div class="hint"><span id="msgCount">0</span>/300</div>
+                  ></textarea>
+                  <div class="field-meta">
+                    <span class="muted">Máx. 280 caracteres</span>
+                    <span class="counter"><span id="msgCount">0</span>/280</span>
+                  </div>
+                </label>
+
+                <button class="btn btn--primary" type="submit">
+                  Enviar comentario
+                </button>
+
+                <p class="form-hint">
+                  Los comentarios se publican solo tras aprobación manual.
+                </p>
+              </form>
+
+              <div class="comments-panel">
+                <div class="comments-panel__head">
+                  <h3>Lo que dice la gente</h3>
+                  <p class="muted">
+                    Lista de comentarios aprobados.
+                  </p>
                 </div>
 
-                <div class="field">
-                    <label for="visibility">Tipo</label>
-                    <select id="visibility" name="visibility">
-                    <option value="public">Público (visible en la landing)</option>
-                    <option value="private">Privado (incidencias/sugerencias)</option>
-                    </select>
+                <div id="commentsList" class="comments-list">
+                  <div class="comment-empty muted">Aún no hay comentarios aprobados.</div>
                 </div>
-
-                <div class="hero__actions">
-                    <button class="btn btn--primary" type="submit">
-                    Enviar comentario
-                    </button>
-                </div>
-
-                <div class="hint" style="margin-top:.7rem;">
-                    Nota: el envío real funcionará cuando conectes la landing a Vercel
-                    con la función serverless que crea el issue.
-                </div>
-                </form>
+              </div>
             </div>
-            </div>
-        </div>
+          </div>
         </section>
+
 
         <!-- CTA strip -->
         <section class="cta-strip">
@@ -391,8 +364,12 @@
             </div>
           </div>
 
+          <div class="legal-small">
+            © Tickit 2025
+          </div>
+
           <div class="footer__links">
-            <a href="./privacy.html">Privacidad</a>
+            <a href="./pages/privacy.html">Privacidad</a>
             <a id="openAppFooter" href="#">App</a>
             <a href="./index-en.html">EN</a>
           </div>
@@ -402,6 +379,5 @@
 
 
     <script src="./js/script.js"></script>
-    <script src="./js/feedback.js"></script>
   </body>
 </html>

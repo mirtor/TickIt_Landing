@@ -4,47 +4,43 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, message, visibility } = req.body || {};
+    const { name, message } = req.body || {};
 
     if (!name?.trim() || !message?.trim()) {
       return res.status(400).json({ error: "Missing fields" });
     }
 
-    const repo = process.env.GITHUB_REPO;
+    const repo = process.env.GITHUB_REPO; // "usuario/repo"
     const token = process.env.GITHUB_TOKEN;
 
     if (!repo || !token) {
       return res.status(500).json({ error: "Server not configured" });
     }
 
-    const title =
-      visibility === "private"
-        ? `🔒 Private feedback: ${name.trim().slice(0, 40)}`
-        : `💬 Public suggestion: ${name.trim().slice(0, 40)}`;
+    const safeName = name.trim().slice(0, 60);
+    const safeMsg = message.trim().slice(0, 280);
+
+    // Creamos como "pending" para moderación
+    const title = `💬 Feedback: ${safeName}`;
 
     const body = [
-      `**Name:** ${name.trim()}`,
-      `**Visibility:** ${visibility || "public"}`,
+      `**Name:** ${safeName}`,
       ``,
-      message.trim(),
+      safeMsg,
       ``,
-      `— Sent from Tickit landing`,
+      `— Sent from TickIt landing`,
     ].join("\n");
 
-    const labels =
-      visibility === "private"
-        ? ["feedback", "private"]
-        : ["feedback", "public"];
-
+    const labels = ["feedback", "pending"];
 
     const ghRes = await fetch(`https://api.github.com/repos/${repo}/issues`, {
-    method: "POST",
-    headers: {
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
         Accept: "application/vnd.github+json",
-    },
-    body: JSON.stringify({ title, body, labels }),
+      },
+      body: JSON.stringify({ title, body, labels }),
     });
 
     if (!ghRes.ok) {
@@ -53,7 +49,7 @@ export default async function handler(req, res) {
     }
 
     return res.status(200).json({ ok: true });
-  } catch (e) {
+  } catch {
     return res.status(500).json({ error: "Unexpected error" });
   }
 }

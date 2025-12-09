@@ -4,29 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Tickit — Tasks & Notes that stay simple</title>
+    <title>TickIt — Tasks & Notes</title>
     <meta
       name="description"
-      content="Tickit is a lightweight tasks & notes app with subtasks, smart bullet notes, and clean UI. Built with Vue + Firebase."
+      content="TickIt is a lightweight tasks and notes app with subtasks, bullet-style notes, and a clean UI. Built with Vue + Firebase."
     />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Tickit — Tasks & Notes that stay simple" />
+    <meta property="og:title" content="TickIt — Tasks & Notes" />
     <meta
       property="og:description"
-      content="Control your day with minimal friction: tasks, subtasks, and bullet-style notes."
+      content="Organize your day with minimal friction: tasks, subtasks, and bullet notes."
     />
     <meta property="og:type" content="website" />
 
-    <!-- Favicon (optional) -->
-    <link rel="icon" href="./TickitIcon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./img/TickItIcon.svg" type="image/svg+xml" />
+
+    <!-- Language alternates (optional but nice) -->
+    <link rel="alternate" hreflang="es" href="./index.html" />
+    <link rel="alternate" hreflang="en" href="./index-en.html" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- System-like font stack fallback; this is just a nice optional touch -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
 
   <body>
@@ -35,18 +36,33 @@
       <header class="topbar">
         <div class="container topbar__inner">
           <div class="brand">
-            <img src="./TickitIcon.svg" alt="Tickit" class="brand__logo" />
-            <span class="brand__name">Tickit</span>
+            <img src="./img/TickItIcon.svg" alt="TickIt" class="footer__logo" />
+            <div>
+              <div class="brand__name">TickIt</div>
+              <div class="brand__small">Tasks & notes</div>
+            </div>
           </div>
 
           <nav class="topbar__nav">
             <a href="#features">Features</a>
             <a href="#how">How it works</a>
             <a href="#faq">FAQ</a>
+            <a class="navlink" href="#comments">Comments</a>
           </nav>
 
-          <div class="topbar__cta">
-            <a class="btn btn--ghost" href="./index.html">ES</a>
+          <div class="topbar__cta" style="gap:.5rem;">
+            <a class="btn btn--ghost" id="openAppTop" href="#">Open app</a>
+          </div>
+
+          <div class="lang-switch" aria-label="Language selector">
+            <button class="lang-btn" data-lang="es" title="Español">
+              <img src="./img/es.svg" alt="ES flag" class="flag" />
+              <span>ES</span>
+            </button>
+            <button class="lang-btn active" data-lang="en" title="English">
+              <img src="./img/en.svg" alt="EN flag" class="flag" />
+              <span>EN</span>
+            </button>
           </div>
         </div>
       </header>
@@ -56,79 +72,43 @@
         <section class="hero">
           <div class="container hero__grid">
             <div class="hero__copy">
-              <div class="badge">Minimal tasks + bullet notes</div>
+              <div class="badge">Tasks & notes</div>
               <h1>
                 Organize your day
-                <span class="accent">without the noise</span>
+                <span class="accent">effortlessly</span>
               </h1>
               <p class="lead">
-                Tickit helps you manage tasks and notes in a clean, fast interface.
-                Track subtasks, keep completed items visible, and write notes as bullet points
-                with separators for different topics.
+                TickIt helps you manage tasks and notes with a clean, fast interface.
+                Track subtasks, keep completed items visible without clutter, and write
+                bullet-style notes with subtle separators for different topics.
               </p>
 
               <div class="hero__actions">
                 <a class="btn btn--primary" id="openAppHero" href="#">
-                  Go to Tickit
+                  Go to TickIt
                 </a>
 
-                <button class="btn btn--secondary" id="installHelpBtn" type="button">
-                  Install on mobile
-                </button>
+                <a href="#faq" class="btn btn--secondary" id="installHelpBtn" type="button">
+                  See FAQ for install tips
+                </a>
               </div>
 
               <div class="hero__meta">
                 <div class="meta-pill">Vue 3 + TypeScript</div>
                 <div class="meta-pill">Firebase Auth + Firestore</div>
-                <div class="meta-pill">PWA-ready app</div>
+                <div class="meta-pill">PWA app</div>
               </div>
             </div>
 
-            <!-- Mock card -->
-            <div class="hero__mock">
-              <div class="mock-card">
-                <div class="mock-card__header">
-                  <span class="dot dot--red"></span>
-                  <span class="dot dot--yellow"></span>
-                  <span class="dot dot--green"></span>
-                  <span class="mock-title">Today in Tickit</span>
-                </div>
-
-                <div class="mock-section">
-                  <div class="mock-section__title">Active tasks</div>
-                  <div class="mock-task">
-                    <span class="mock-task__bullet"></span>
-                    <div class="mock-task__body">
-                      <div class="mock-task__name">Ship Vercel landing</div>
-                      <div class="mock-task__sub">2/5 subtasks completed</div>
-                    </div>
-                  </div>
-                  <div class="mock-task">
-                    <span class="mock-task__bullet"></span>
-                    <div class="mock-task__body">
-                      <div class="mock-task__name">Refine bullet notes</div>
-                      <div class="mock-task__sub">clean separators & autosize</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mock-divider"></div>
-
-                <div class="mock-section">
-                  <div class="mock-section__title">Quick note</div>
-                  <ul class="mock-note">
-                    <li>Call supplier</li>
-                    <li>Check delivery times</li>
-                    <li class="sep">────────</li>
-                    <li>Ideas for next UI pass</li>
-                  </ul>
-                </div>
-
-                <div class="mock-card__footer">
-                  <span class="mock-pill">Fast</span>
-                  <span class="mock-pill">Simple</span>
-                  <span class="mock-pill">Private by rules</span>
-                </div>
+            <!-- Screenshot -->
+            <div class="panel shot-card">
+              <div class="shot-frame">
+                <img
+                  class="shot-img"
+                  src="./img/screenshots.png"
+                  alt="TickIt screenshot"
+                  width="100%"
+                />
               </div>
             </div>
           </div>
@@ -140,25 +120,24 @@
             <div class="section__head">
               <h2>Everything you need, nothing you don’t</h2>
               <p>
-                Tickit focuses on core day-to-day planning with a polished UX.
+                TickIt focuses on real daily planning with a refined, no-noise UX.
               </p>
             </div>
 
             <div class="grid-3">
               <article class="feature-card">
                 <div class="feature-icon">✓</div>
-                <h3>Active & completed views</h3>
+                <h3>Active & completed</h3>
                 <p>
-                  Keep progress visible. Completed tasks stay accessible without cluttering
-                  your active list.
+                  Keep progress visible. Completed items stay accessible without getting in the way.
                 </p>
               </article>
 
               <article class="feature-card">
                 <div class="feature-icon">↕</div>
-                <h3>Order control</h3>
+                <h3>Quick ordering</h3>
                 <p>
-                  Reorder tasks and notes with simple controls for quick prioritization.
+                  Reorder tasks and notes with simple controls to prioritize instantly.
                 </p>
               </article>
 
@@ -166,31 +145,31 @@
                 <div class="feature-icon">•</div>
                 <h3>Bullet-style notes</h3>
                 <p>
-                  Write each line as a bullet. Use double line breaks to create subtle separators.
+                  Each line break becomes a bullet. Double line breaks create a subtle divider.
                 </p>
               </article>
 
               <article class="feature-card">
                 <div class="feature-icon">☑</div>
-                <h3>Subtasks</h3>
+                <h3>Full subtasks</h3>
                 <p>
-                  Add optional description, link, and date. Edit in view-mode first to avoid accidents.
+                  Add description, link, and optional date. Safe editing by default.
                 </p>
               </article>
 
               <article class="feature-card">
                 <div class="feature-icon">✎</div>
-                <h3>Safe editing flow</h3>
+                <h3>No-surprise editing</h3>
                 <p>
-                  Notes open locked by default. One button toggles edit/save for quick, consistent UX.
+                  Notes start locked. One button handles edit/save in a clean flow.
                 </p>
               </article>
 
               <article class="feature-card">
                 <div class="feature-icon">⚡</div>
-                <h3>Clean, fast UI</h3>
+                <h3>Clean & fast UI</h3>
                 <p>
-                  Compact typography, tidy spacing, and style refactors keep the interface clear.
+                  Compact typography, solid spacing, and refined styles throughout.
                 </p>
               </article>
             </div>
@@ -201,40 +180,41 @@
         <section id="how" class="section section--alt">
           <div class="container how">
             <div class="how__text">
-              <h2>Designed for real daily use</h2>
+              <h2>Designed for daily use</h2>
               <p>
-                Tickit is not a heavy project manager. It’s your lightweight companion
-                for daily tasks and short notes that sync across devices.
+                TickIt isn’t a heavy manager. It’s your lightweight companion
+                for day-to-day tasks and short notes, synced across devices.
               </p>
 
-              <ul class="checklist">
-                <li>Sign in with Firebase Auth</li>
-                <li>Your tasks are scoped by userId</li>
-                <li>Notes support multi-line bullets + separators</li>
-                <li>PWA update prompts keep you current</li>
-              </ul>
-
-              <div class="how__actions">
-                <a class="btn btn--primary" id="openAppHow" href="#">
-                  Open Tickit
+              <div class="hero-actions">
+                <a href="#faq" class="btn btn--primary" type="button">
+                  See FAQ for install tips
                 </a>
-                <button class="btn btn--ghost" id="bookmarkHelpBtn" type="button">
-                  Save to favorites
-                </button>
+                <a
+                  class="btn btn--ghost"
+                  id="openAppHow"
+                  href="https://apptasks-49a0a.web.app"
+                >
+                  Open app
+                </a>
               </div>
+
+              <p class="hint" style="margin-top:.8rem;">
+                If your browser supports it, you may see an automatic install suggestion.
+              </p>
             </div>
 
             <div class="how__panel">
               <div class="info-panel">
                 <h4>Mobile tip</h4>
                 <p>
-                  You can add Tickit to your home screen from your browser.
-                  This creates an app-like shortcut.
+                  You can add TickIt to your home screen from your browser
+                  and use it like a native app.
                 </p>
                 <div class="mini-steps">
                   <div class="mini-step">
                     <span class="mini-dot"></span>
-                    <span>Open Tickit on mobile</span>
+                    <span>Open TickIt on your phone</span>
                   </div>
                   <div class="mini-step">
                     <span class="mini-dot"></span>
@@ -251,39 +231,113 @@
           <div class="container">
             <div class="section__head">
               <h2>FAQ</h2>
-              <p>Short answers for the most common questions.</p>
+              <p>Quick answers to common questions.</p>
             </div>
 
             <div class="faq">
+              <details open>
+                <summary>How do I install it?</summary>
+                <p>
+                  TickIt is a PWA. You can install it as a shortcut:
+                </p>
+                <ul>
+                  <li><strong>Desktop</strong>: Chrome/Edge usually show an install icon in the address bar.</li>
+                  <li><strong>Android (Chrome)</strong>: open the app → menu ⋮ → <em>Install app</em> or <em>Add to Home screen</em>.</li>
+                  <li><strong>iOS (Safari)</strong>: tap Share → <em>Add to Home Screen</em>.</li>
+                </ul>
+                <p>
+                  You can also просто bookmark it in your browser.
+                </p>
+              </details>
+
               <details>
-                <summary>Can this landing install the app for me?</summary>
+                <summary>Are my data private?</summary>
                 <div class="faq__content">
                   <p>
-                    Not directly. Browsers don’t allow one website to trigger installation
-                    of a different-origin PWA. This page can guide you to do it in a few taps.
+                    Your tasks and notes are stored under your Firebase account and should only
+                    be accessible to you through security rules.
+                  </p>
+                  <p>
+                    <strong>We’re working on end-to-end encryption</strong> so that even at the infrastructure level,
+                    your content can be even more private.
                   </p>
                 </div>
               </details>
 
               <details>
-                <summary>Is my data private?</summary>
+                <summary>How do I get started fast?</summary>
                 <div class="faq__content">
                   <p>
-                    Your tasks are scoped by your account in Firestore. The project owner
-                    can technically access database content unless you implement end-to-end encryption.
-                    For a personal productivity app, this is a common approach.
+                    Open the app, create your first task, and add subtasks or a bullet note.
                   </p>
                 </div>
               </details>
+            </div>
+          </div>
+        </section>
 
-              <details>
-                <summary>What’s the fastest way to start?</summary>
-                <div class="faq__content">
-                  <p>
-                    Open the app, create your first task, then add subtasks or a bullet note.
+        <!-- Comments -->
+        <section id="comments" class="section section--alt">
+          <div class="container">
+            <div class="section__head">
+              <h2>Comments</h2>
+              <p>
+                Leave a suggestion or feedback. It will be reviewed and may appear on this page.
+              </p>
+            </div>
+
+            <div class="comments-grid">
+              <form id="commentForm" class="comment-form">
+                <label class="field">
+                  <span>Name</span>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your name"
+                    maxlength="60"
+                    required
+                    autocomplete="name"
+                  />
+                </label>
+
+                <label class="field">
+                  <span>Comment</span>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="What would you improve or what do you like?"
+                    maxlength="280"
+                    required
+                  ></textarea>
+                  <div class="field-meta">
+                    <span class="muted">Max 280 characters</span>
+                    <span class="counter"><span id="msgCount">0</span>/280</span>
+                  </div>
+                </label>
+
+                <button class="btn btn--primary" type="submit">
+                  Send comment
+                </button>
+
+                <p class="form-hint">
+                  Comments are published only after manual approval.
+                </p>
+              </form>
+
+              <div class="comments-panel">
+                <div class="comments-panel__head">
+                  <h3>What people say</h3>
+                  <p class="muted">
+                    Approved comments.
                   </p>
                 </div>
-              </details>
+
+                <div id="commentsList" class="comments-list">
+                  <div class="comment-empty muted">No approved comments yet.</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -292,11 +346,11 @@
         <section class="cta-strip">
           <div class="container cta-strip__inner">
             <div>
-              <h3>Ready to keep your day under control?</h3>
-              <p>Open Tickit and create your first task or note in seconds.</p>
+              <h3>Ready to stay on top of your day?</h3>
+              <p>Create your first task or note in seconds.</p>
             </div>
             <div class="cta-strip__actions">
-              <a class="btn btn--primary" id="openAppBottom" href="#">Open Tickit</a>
+              <a class="btn btn--primary" id="openAppBottom" href="#">Open TickIt</a>
             </div>
           </div>
         </section>
@@ -305,37 +359,28 @@
       <!-- Footer -->
       <footer class="footer">
         <div class="container footer__inner">
-          <div class="footer__brand">
-            <img src="./TickitIcon.svg" alt="Tickit" class="footer__logo" />
+          <div class="brand">
+            <img src="./img/TickItIcon.svg" alt="TickIt" class="footer__logo" />
             <div>
-              <div class="footer__name">Tickit</div>
-              <div class="footer__small">Lightweight tasks & notes</div>
+              <div class="brand__name">TickIt</div>
+              <div class="brand__small">Tasks & notes</div>
             </div>
           </div>
 
+          <div class="legal-small">
+            © Tickit 2025
+          </div>
+
           <div class="footer__links">
-            <a href="./privacy-en.html">Privacy</a>
+            <a href="./pages/privacy-en.html">Privacy</a>
             <a id="openAppFooter" href="#">App</a>
+            <a href="./index.html">ES</a>
           </div>
         </div>
       </footer>
     </div>
 
-    <!-- Modal -->
-    <div class="modal-backdrop is-hidden" id="helpModalBackdrop">
-      <div class="modal">
-        <div class="modal-header">
-          <h2 class="modal-title" id="helpModalTitle">Install on mobile</h2>
-        </div>
-        <div class="modal-body">
-          <div class="help-content" id="helpModalBody"></div>
-        </div>
-        <div class="modal-footer modal-footer--single">
-          <button class="btn btn-primary" id="helpModalOk">OK</button>
-        </div>
-      </div>
-    </div>
-
-    <script src="./script.js"></script>
+    <!-- Only client script -->
+    <script src="./js/script.js"></script>
   </body>
 </html>

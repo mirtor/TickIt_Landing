@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>TickIt — Privacy Policy</title>
+    <meta
+      name="description"
+      content="TickIt privacy policy. Information about data, Firebase usage, authentication and security."
+    />
+
+    <meta property="og:title" content="TickIt — Privacy Policy" />
+    <meta
+      property="og:description"
+      content="Information about data, Firebase, authentication, and TickIt security measures."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="../img/TickItIcon.svg" type="image/svg+xml" />
+
+    <link rel="alternate" hreflang="es" href="./privacy.html" />
+    <link rel="alternate" hreflang="en" href="./privacy-en.html" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="container topbar__inner">
+          <div class="brand">
+            <img src="../img/TickItIcon.svg" alt="TickIt" class="footer__logo" />
+            <div>
+              <div class="brand__name">TickIt</div>
+              <div class="brand__small">Tasks & notes</div>
+            </div>
+          </div>
+
+          <nav class="topbar__nav">
+            <!-- Mantengo tus rutas tal cual -->
+            <a href="../index.html#features">Features</a>
+            <a href="../index.html#how">How it works</a>
+            <a href="../index.html#faq">FAQ</a>
+            <a class="navlink" href="../index.html#comments">Comments</a>
+          </nav>
+
+          <div class="topbar__cta" style="gap:.5rem;">
+            <a class="btn btn--ghost" id="openAppTop" href="#">Open app</a>
+          </div>
+
+          <div class="lang-switch" aria-label="Language selector">
+            <button class="lang-btn" data-lang="es" title="Español">
+              <img src="../img/es.svg" alt="ES" class="flag" />
+              <span>ES</span>
+            </button>
+            <button class="lang-btn active" data-lang="en" title="English">
+              <img src="../img/en.svg" alt="EN" class="flag" />
+              <span>EN</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section legal">
+          <div class="container">
+            <div class="legal__head">
+              <div class="badge">Legal</div>
+              <h1>Privacy Policy</h1>
+              <p class="lead">
+                This policy explains how TickIt handles user data.
+                If you have questions, also review your account and browser settings.
+              </p>
+            </div>
+
+            <article class="legal-card">
+              <div class="legal-callout">
+                <p>
+                  <strong>Quick summary:</strong> TickIt uses Firebase Authentication and Cloud Firestore
+                  to store your tasks and notes linked to your user account. We do not sell data.
+                  Administrative access to the database by the project owner is not intended
+                  to analyze personal content.
+                </p>
+              </div>
+
+              <h2>1. What data we collect</h2>
+              <ul>
+                <li>Authentication data: email and/or identifiers from your login provider.</li>
+                <li>App data: tasks, subtasks, and notes you create.</li>
+                <li>Basic technical metadata required for the service to function (e.g., timestamps).</li>
+              </ul>
+
+              <h2>2. Purpose of processing</h2>
+              <p>Data is used exclusively to:</p>
+              <ul>
+                <li>Enable sign-in and maintain your account.</li>
+                <li>Sync your tasks and notes across devices.</li>
+                <li>Improve app stability and user experience.</li>
+              </ul>
+
+              <h2>3. Technology stack</h2>
+              <p>
+                TickIt is built with Vue and uses Google Firebase services:
+              </p>
+              <ul>
+                <li><strong>Firebase Authentication</strong> for user management.</li>
+                <li><strong>Cloud Firestore</strong> to store tasks and notes.</li>
+                <li><strong>App Check (reCAPTCHA Enterprise)</strong> to protect backend usage against abuse.</li>
+              </ul>
+
+              <h2>4. Where data is stored</h2>
+              <p>
+                Data is stored on Firebase/Google Cloud infrastructure
+                under the project associated with TickIt. The exact location may depend
+                on project configuration.
+              </p>
+
+              <h2>5. Data sharing</h2>
+              <p>
+                TickIt does not share your data with third parties for commercial purposes.
+                Data is processed by Firebase as the infrastructure provider.
+              </p>
+
+              <h2>6. Security</h2>
+              <p>
+                User-based access rules are applied so each person
+                can only view their own documents.
+              </p>
+
+              <div class="legal-callout">
+                <p>
+                  <strong>Important note:</strong> This app does not implement end-to-end encryption
+                  for content. Technically, the project owner could have administrative access
+                  to the database. In small personal productivity apps, this approach is common.
+                  If E2E encryption is added in the future, this policy will be updated.
+                </p>
+              </div>
+
+              <h2>7. Retention and deletion</h2>
+              <ul>
+                <li>You can delete tasks and notes from within the app.</li>
+                <li>
+                  If you want to delete your account and associated data, you can request it from the project contact.
+                </li>
+              </ul>
+
+              <h2>8. Cookies and similar technologies</h2>
+              <p>
+                Firebase and reCAPTCHA may use cookies or browser storage
+                needed for authentication and security. Behavior may vary depending
+                on your browser and its privacy policies.
+              </p>
+
+              <h2>9. User rights</h2>
+              <p>
+                If you are located in Spain or the European Economic Area, you may exercise
+                your rights of access, rectification, erasure, restriction, and portability
+                where applicable by contacting the project owner.
+              </p>
+
+              <h2>10. Changes to this policy</h2>
+              <p>
+                This policy may be updated to reflect security improvements,
+                infrastructure changes, or new legal requirements.
+              </p>
+
+              <h2>11. Contact</h2>
+              <p>
+                If you need support or want to request account deletion,
+                contact the owner of the repository/project where TickIt is published.
+              </p>
+
+              <p class="legal-small">
+                Last updated: 08/12/2025
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- CTA strip -->
+        <section class="cta-strip">
+          <div class="container cta-strip__inner">
+            <div>
+              <h3>Want to go back to the app?</h3>
+              <p>TickIt is ready when you are.</p>
+            </div>
+            <div class="cta-strip__actions">
+              <a class="btn btn--primary" id="openAppBottom" href="#">Open TickIt</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container footer__inner">
+          <div class="brand">
+            <img src="../img/TickItIcon.svg" alt="TickIt" class="footer__logo" />
+            <div>
+              <div class="brand__name">TickIt</div>
+              <div class="brand__small">Tasks & notes</div>
+            </div>
+          </div>
+
+          <div class="legal-small">
+            © Tickit 2025
+          </div>
+
+          <div class="footer__links">
+            <a href="./privacy-en.html">Privacy</a>
+            <a id="openAppFooter" href="#">App</a>
+            <a href="../index.html">ES</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

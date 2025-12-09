@@ -596,6 +596,12 @@ summary{
   font-size: 0.95rem;
 }
 
+.comments-list{
+  max-height: 420px;
+  overflow: auto;
+  padding-right: 0.25rem;
+}
+
 
 
 

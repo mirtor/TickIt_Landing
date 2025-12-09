@@ -104,7 +104,8 @@ async function loadApprovedComments() {
   if (!list) return;
 
   try {
-    const r = await fetch("/api/comments");
+    const COMMENTS_LIMIT = 4;
+    const r = await fetch(`/api/comments?limit=${COMMENTS_LIMIT}`);
     if (!r.ok) throw new Error("Bad response");
     const items = await r.json();
 
